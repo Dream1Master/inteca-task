@@ -1,0 +1,65 @@
+<ng-template #content let-modal>
+  <form [formGroup]="fatherForm" (ngSubmit)="onSubmit()">
+    <div class="modal-header">
+      <h4 class="modal-title">Father Data Collect</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+
+      <div class="form-group">
+        <label>PESEL</label>
+        <input type="text" formControlName="pesel" class="form-control"
+               [ngClass]="{ 'is-invalid': submitted && fForm['pesel'].errors }"/>
+        <div *ngIf="submitted && fForm['pesel'].errors" class="invalid-feedback">
+          <div *ngIf="fForm['pesel'].errors.required">PESEL is required</div>
+          <div *ngIf="fForm['pesel'].errors.minlength">PESEL must be 11 characters</div>
+          <div *ngIf="fForm['pesel'].errors.maxlength">PESEL must be 11 characters</div>
+          <div *ngIf="fForm['pesel'].errors.pattern">PESEL should contain only numbers</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" formControlName="firstName" class="form-control"
+               [ngClass]="{ 'is-invalid': submitted && fForm['firstName'].errors }"/>
+        <div *ngIf="submitted && fForm['firstName'].errors" class="invalid-feedback">
+          <div *ngIf="fForm['firstName'].errors.required">First Name is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" formControlName="secondName" class="form-control"
+               [ngClass]="{ 'is-invalid': submitted && fForm['secondName'].errors }"/>
+        <div *ngIf="submitted && fForm['secondName'].errors" class="invalid-feedback">
+          <div *ngIf="fForm['secondName'].errors.required">Last Name is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Birthday:</label>
+        <div class="input-group">
+          <input formControlName="birthDay" placeholder="{{ (father.birthDay ? father.birthDay : 'Chose Date') }}"
+                 ngbDatepicker #d="ngbDatepicker" name="birthDay" class="form-control" id="birthDay"
+                 [ngClass]="{ 'is-invalid': submitted && fForm['birthDay'].errors }"/>
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+          </div>
+          <div *ngIf="submitted && fForm['birthDay'].errors" class="invalid-feedback">
+            <div *ngIf="fForm['birthDay'].errors.required">Last Name is required</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <div class="form-group">
+        <button class="btn btn-primary" (click)="createFather(modal)">Create</button>
+      </div>
+    </div>
+  </form>
+</ng-template>
+
+<button class="btn btn-outline-primary mb-2 mr-2" (click)="openWindowCustomClass(content)">Collect Father Data</button>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div class="col-md-6">
+  <h2 class="text-center">Add Father</h2>
+<form>
+  <div class="form-group">
+    <label for="PESEL">PESEL:</label>
+    <input [(ngModel)]="father.pesel" placeholder="PESEL" name="PESEL" class="form-control" id="PESEL">
+  </div>
+
+  <div class="form-group">
+    <label for="firstName">First Name:</label>
+    <input [(ngModel)]="father.firstName" placeholder="First Name" name="firstName" class="form-control" id="firstName">
+  </div>
+
+  <div class="form-group">
+    <label for="lastName">Last Name:</label>
+   <input [(ngModel)]="father.secondName" placeholder="Last name" name="lastName" class="form-control" id="lastName">
+  </div>
+  
+  <div class="form-group">
+    <label for="birthDay">Birthday:</label>
+   <input [(ngModel)]="father.birthDay" placeholder="BirthDay" name="birthDay" class="form-control" id="birthDay">
+  </div>
+
+  <button class="btn btn-success" (click)="createFather()">Create</button>
+</form>
+</div>
+
+
+</body>
+</html>

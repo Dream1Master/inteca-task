@@ -1,0 +1,88 @@
+<div class="row" *ngIf="family">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>Father</h5>
+        <div class="ibox-tools">
+          <a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+          </a> <a class="close-link"> <i class="fa fa-times"></i>
+        </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+
+        <div class="row">
+          <div class="col-lg-12">
+            <table class="table table-hover margin bottom">
+              <thead>
+              <tr>
+                <th style="width: 1%">PESEL</th>
+                <th>First Name</th>
+                <th>Second Name</th>
+                <th>Birth Day</th>
+                <th>Action</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>{{ father.pesel }}</td>
+                <td>{{ father.firstName }}</td>
+                <td>{{ father.secondName }}</td>
+                <td>{{father.birthDay | date: 'dd/MM/yyyy'}}</td>
+                <td><button type="button" class="btn btn-primary" (click)="createFather()">Add Father</button></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-lg-12">
+            <div id="world-map" style="height: 300px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="family">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>Children</h5>
+        <div class="ibox-tools">
+          <a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+          </a> <a class="close-link"> <i class="fa fa-times"></i>
+        </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+
+        <div class="row">
+          <div class="col-lg-6">
+            <table class="table table-hover margin bottom">
+              <thead>
+              <tr>
+                <th style="width: 1%">PESEL</th>
+                <th>First Name</th>
+                <th>Second Name</th>
+                <th>Birth Day</th>
+                <th>Sex</th>
+                <th>Action</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let character of children">
+                <td>{{ character.pesel }}</td>
+                <td>{{ character.firstName }}</td>
+                <td>{{ character.secondName }}</td>
+                <td>{{character.birthDay | date: 'dd/MM/yyyy'}}</td>
+                <td>{{ character.sex }}</td>
+                <td><button type="button" class="btn btn-primary" (click)="createChild(character)">Add Child</button></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

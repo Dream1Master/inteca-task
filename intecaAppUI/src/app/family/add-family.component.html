@@ -1,0 +1,29 @@
+
+<div class="container-fluid">
+
+  <hr>
+
+  <p>
+    The procedure for adding a family follows:
+  </p>
+
+  <ul>
+    <li>Collecting father's data with button "Collect Father Data" </li>
+    <li>Collecting children data with button "Collect Child Data"</li>
+    <li>Adding new family with button "Create Family"</li>
+  </ul>
+
+  <p>
+    After creating family you will see entered data and button for confirmation father or children data to send them to database.
+  </p>
+
+  <hr>
+
+  <ngbd-modal-collect-father (fatherEmitter)="onFatherEmitted($event)"></ngbd-modal-collect-father>
+  <br>
+  <ngbd-modal-collect-child (childrenEmitter)="onChildrenEmitted($event)"></ngbd-modal-collect-child>
+  <br>
+  <button type="button" class="btn btn-light" (click)="createFamily()">Create Family</button>
+  <br>
+  <family-preview [father]="father" [children]="children" [family]="family"></family-preview>
+</div>

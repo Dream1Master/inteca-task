@@ -1,0 +1,14 @@
+{
+  "/api": {
+    "target": "http://localhost:8080",
+    "secure": false
+  },
+  "/family": {
+    "target": "http://localhost:8080",
+    "secure": false
+  },
+  "/child": {
+    "target": "http://localhost:8080",
+    "secure": false
+  }
+}

@@ -1,0 +1,82 @@
+<div class="row" *ngIf="family">
+	<div class="col-lg-12">
+		<div class="ibox float-e-margins">
+			<div class="ibox-title">
+				<h5>Father</h5>
+				<div class="ibox-tools">
+					<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+					</a> <a class="close-link"> <i class="fa fa-times"></i>
+					</a>
+				</div>
+			</div>
+			<div class="ibox-content">
+
+				<div class="row">
+					<div class="col-lg-12">
+						<table class="table table-hover margin bottom">
+						<thead>
+							<tr>
+								<th style="width: 1%" class="text-center">PESEL</th>
+								<th>First Name</th>
+								<th class="text-center">Second Name</th>
+								<th class="text-center">Birth Day</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>{{ family.father.pesel }}</td>
+								<td>{{ family.father.firstName }}</td>
+								<td>{{ family.father.secondName }}</td>
+								<td>{{ family.father.birthDay }}</td>
+							</tr>
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row" *ngIf="family">
+	<div class="col-lg-12">
+		<div class="ibox float-e-margins">
+			<div class="ibox-title">
+				<h5>Children</h5>
+				<div class="ibox-tools">
+					<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+					</a> <a class="close-link"> <i class="fa fa-times"></i>
+					</a>
+				</div>
+			</div>
+			<div class="ibox-content">
+
+				<div class="row">
+					<div class="col-lg-12">
+						<table class="table table-hover margin bottom">
+						<thead>
+							<tr>
+								<th style="width: 1%" class="text-center">PESEL</th>
+								<th>First Name</th>
+								<th class="text-center">Second Name</th>
+								<th class="text-center">Birth Day</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let character of family.children">
+								<td>{{ character.pesel }}</td>
+								<td>{{ character.firstName }}</td>
+								<td>{{ character.secondName }}</td>
+								<td>{{ character.birthDay }}</td>
+							</tr>
+						</tbody>
+						</table>
+					</div>
+					<div class="col-lg-12">
+						<div id="world-map" style="height: 300px;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
